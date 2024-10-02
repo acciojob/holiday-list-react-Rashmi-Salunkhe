@@ -1,9 +1,9 @@
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import './../styles/App.css';
 
 const App = () => {
-    const cityList = [{ name: 'Goa', country: 'India' },
+  const cityList = [
+    { name: 'Goa', country: 'India' },
     { name: 'Amsterdam', country: 'Netherlands' },
     { name: 'New York', country: 'USA' },
     { name: 'Darjeeling', country: 'India' },
@@ -31,13 +31,20 @@ const App = () => {
     { name: 'Mussoorie', country: 'India' },
     { name: 'Mount Abu', country: 'India' },
     { name: 'Tirupati', country: 'India' },
-    ]
-    
+  ];
+
+  // Filter cities from India
+  const indianCities = cityList.filter((item) => item.country === 'India');
+
   return (
     <div id="main">
-               {/* Do not remove the main div */}
+      <ol>
+        {indianCities.map((city, index) => (
+          <li key={index}>{city.name}</li>
+        ))}
+      </ol>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
